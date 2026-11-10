@@ -1,0 +1,16 @@
+.env
+!.env.example
+.env.production
+!.env.production.example
+.secrets/
+backups/
+.venv/
+.state/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+web/.next/
+web/node_modules/
+web/next-env.d.ts
+web/*.tsbuildinfo
+evals/reports/

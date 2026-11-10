@@ -1,0 +1,11 @@
+[
+  {"run_id":"DET-001","project":"detection","label":"RT-DETRv2 R50 baseline","revision":"demo-baseline-r1","split_fingerprint":"coco-demo-val:v1","training_protocol":"r50-72e:v1","evaluation_protocol":"bbox-coco:v1","seed":42,"ap":0.485,"ap_small":0.312},
+  {"run_id":"DET-002","project":"detection","label":"RT-DETRv2 R50 + 融合模块 A","revision":"demo-fusion-a-r1","split_fingerprint":"coco-demo-val:v1","training_protocol":"r50-72e:v1","evaluation_protocol":"bbox-coco:v1","seed":42,"ap":0.497,"ap_small":0.328},
+  {"run_id":"DET-003","project":"detection","label":"RT-DETRv2 R50 + 融合模块 A（不同划分）","revision":"demo-fusion-a-r1","split_fingerprint":"coco-demo-val:v2","training_protocol":"r50-72e:v1","evaluation_protocol":"bbox-coco:v1","seed":42,"ap":0.513},
+  {"run_id":"DET-004","project":"detection","label":"RT-DETRv2 R50 + 模块 B（评估缺失）","revision":"demo-module-b-r1","split_fingerprint":"coco-demo-val:v1","training_protocol":"r50-72e:v1","evaluation_protocol":null,"seed":42,"ap":null},
+  {"run_id":"DET-005","project":"detection","label":"RT-DETRv2 R50 + 融合模块 A（不同 seed）","revision":"demo-fusion-a-r1","split_fingerprint":"coco-demo-val:v1","training_protocol":"r50-72e:v1","evaluation_protocol":"bbox-coco:v1","seed":7,"ap":0.500},
+  {"run_id":"DET-006","project":"detection","label":"RT-DETRv2 R50 + 模块 C（不同训练预算）","revision":"demo-module-c-r1","split_fingerprint":"coco-demo-val:v1","training_protocol":"r50-120e:v1","evaluation_protocol":"bbox-coco:v1","seed":42,"ap":0.506},
+  {"run_id":"DET-007","project":"detection","label":"RT-DETRv2 R50 + 模块 D（AP 回落）","revision":"demo-module-d-r1","split_fingerprint":"coco-demo-val:v1","training_protocol":"r50-72e:v1","evaluation_protocol":"bbox-coco:v1","seed":42,"ap":0.475},
+  {"run_id":"DET-008","project":"detection","label":"RT-DETRv2 R50 + 模块 E（不同评估配置）","revision":"demo-module-e-r1","split_fingerprint":"coco-demo-val:v1","training_protocol":"r50-72e:v1","evaluation_protocol":"bbox-coco:v2","seed":42,"ap":0.490},
+  {"run_id":"VIS-001","project":"vision-private","label":"隔离项目的检测实验","revision":"demo-private-r1","split_fingerprint":"private-demo:v1","training_protocol":"private-train:v1","evaluation_protocol":"bbox-coco:v1","seed":42,"ap":0.643}
+]

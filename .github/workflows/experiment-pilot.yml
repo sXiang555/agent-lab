@@ -1,0 +1,80 @@
+name: ExperimentPilot
+on:
+  push:
+    paths: ["experiment-pilot/**", ".github/workflows/experiment-pilot.yml"]
+  pull_request:
+    paths: ["experiment-pilot/**", ".github/workflows/experiment-pilot.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: experiment-pilot-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: experiment-pilot
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.11.8"
+          enable-cache: true
+          cache-dependency-glob: experiment-pilot/uv.lock
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: experiment-pilot/web/package-lock.json
+      - run: make check
+      - run: make production-smoke
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation
+          path: experiment-pilot/evals/reports/baseline.json
+          if-no-files-found: ignore
+
+  release:
+    name: Publish tested version
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/release/experiment-pilot-v')
+    needs: regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME#release/}"
+          [[ "$tag" =~ ^experiment-pilot-v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          project_version=$(python3 -c 'import tomllib; print(tomllib.load(open("experiment-pilot/pyproject.toml", "rb"))["project"]["version"])')
+          [[ "$tag" == "experiment-pilot-v$project_version" ]]
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            tagged_sha=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" --jq '.object.sha')
+            [[ "$tagged_sha" == "$GITHUB_SHA" ]]
+            exit 0
+          fi
+          bundle="ExperimentPilot-v$project_version.tar.gz"
+          git archive --format=tar.gz --prefix=agent-lab/ --output="$bundle" "$GITHUB_SHA" \
+            experiment-pilot .github/workflows/experiment-pilot.yml
+          sha256sum "$bundle" > "${bundle}.sha256"
+          gh release create "$tag" "$bundle" "${bundle}.sha256" \
+            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
+            --title "ExperimentPilot v$project_version" --latest \
+            --notes-file experiment-pilot/docs/release-notes.md

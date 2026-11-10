@@ -1,0 +1,12 @@
+.env*
+.secrets
+backups
+.venv
+.state
+**/__pycache__
+.pytest_cache
+.ruff_cache
+web
+tests
+evals
+docs

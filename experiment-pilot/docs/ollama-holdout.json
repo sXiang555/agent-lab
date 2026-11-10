@@ -1,0 +1,847 @@
+{
+  "mode": "remote-chat",
+  "split": "holdout",
+  "count": 20,
+  "passed": 20,
+  "failed_checks": {},
+  "citation_checks_passed": 20,
+  "trace_checks_passed": 20,
+  "p50_ms": 881.31,
+  "p95_ms": 1514.7,
+  "mean_chat_cost_usd": null,
+  "retrieval": {
+    "count": 4,
+    "hit_at_1": 1.0,
+    "recall_at_3": 1.0,
+    "mrr_at_3": 1.0
+  },
+  "models": {
+    "route": "deepseek-r1:7b",
+    "draft": "deepseek-r1:7b",
+    "reasoning_effort": "none"
+  },
+  "model_turns": 13,
+  "model_notes": 11,
+  "judge_model": null,
+  "judge_summary": null,
+  "samples": [
+    {
+      "id": "eval-improvement-4",
+      "topic": "compare",
+      "split": "holdout",
+      "question": "DET-001 vs DET-002，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "comparable",
+      "actual_sources": [
+        "run:DET-001",
+        "run:DET-002"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 3030.895,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 193,
+        "output_tokens": 9,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 3014.75
+      },
+      "model_note": {
+        "text": "用多个预先指定的随机种子成对复跑，再报告差值的均值和离散程度。",
+        "sources": [
+          "kb:seeds"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-reverse-4",
+      "topic": "compare",
+      "split": "holdout",
+      "question": "DET-002 vs DET-001，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "comparable",
+      "actual_sources": [
+        "run:DET-001",
+        "run:DET-002"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 920.085,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 172,
+        "output_tokens": 9,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 903.37
+      },
+      "model_note": {
+        "text": "用多个预先指定的随机种子成对复跑，再报告差值的均值和离散程度。",
+        "sources": [
+          "kb:seeds"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-split-4",
+      "topic": "compare",
+      "split": "holdout",
+      "question": "DET-001 vs DET-003，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "incomparable",
+      "actual_sources": [
+        "run:DET-001",
+        "run:DET-003"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 873.675,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 163,
+        "output_tokens": 8,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 855.4
+      },
+      "model_note": {
+        "text": "按同一数据划分和固定训练条件复跑，再比较主 AP。",
+        "sources": [
+          "kb:protocol"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-no-metrics-4",
+      "topic": "compare",
+      "split": "holdout",
+      "question": "DET-001 vs DET-004，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "insufficient_evidence",
+      "actual_sources": [
+        "run:DET-001",
+        "run:DET-004"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 12.219,
+      "usage": {
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "unreported_usage_calls": 0,
+        "cost_usd": 0,
+        "unpriced_calls": 0,
+        "node_ms": 0.79
+      },
+      "model_note": null,
+      "judge": null
+    },
+    {
+      "id": "eval-seed-4",
+      "topic": "compare",
+      "split": "holdout",
+      "question": "DET-001 vs DET-005，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "incomparable",
+      "actual_sources": [
+        "run:DET-001",
+        "run:DET-005"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 919.714,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 172,
+        "output_tokens": 9,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 908.68
+      },
+      "model_note": {
+        "text": "用多个预先指定的随机种子成对复跑，再报告差值的均值和离散程度。",
+        "sources": [
+          "kb:seeds"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-budget-4",
+      "topic": "compare",
+      "split": "holdout",
+      "question": "DET-001 vs DET-006，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "incomparable",
+      "actual_sources": [
+        "run:DET-001",
+        "run:DET-006"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 824.894,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 163,
+        "output_tokens": 8,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 806.5
+      },
+      "model_note": {
+        "text": "按同一数据划分和固定训练条件复跑，再比较主 AP。",
+        "sources": [
+          "kb:protocol"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-regression-4",
+      "topic": "compare",
+      "split": "holdout",
+      "question": "DET-001 vs DET-007，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "comparable",
+      "actual_sources": [
+        "run:DET-001",
+        "run:DET-007"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 897.28,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 172,
+        "output_tokens": 9,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 881.09
+      },
+      "model_note": {
+        "text": "用多个预先指定的随机种子成对复跑，再报告差值的均值和离散程度。",
+        "sources": [
+          "kb:seeds"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-evaluation-4",
+      "topic": "compare",
+      "split": "holdout",
+      "question": "DET-001 vs DET-008，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "incomparable",
+      "actual_sources": [
+        "run:DET-001",
+        "run:DET-008"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 888.948,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 166,
+        "output_tokens": 9,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 873.12
+      },
+      "model_note": {
+        "text": "核对评估器版本、推理设置和取分 epoch，再比较主 AP。",
+        "sources": [
+          "kb:ap"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-same-run-4",
+      "topic": "compare",
+      "split": "holdout",
+      "question": "DET-001 vs DET-001，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "incomparable",
+      "actual_sources": [
+        "run:DET-001"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 13.163,
+      "usage": {
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "unreported_usage_calls": 0,
+        "cost_usd": 0,
+        "unpriced_calls": 0,
+        "node_ms": 0.69
+      },
+      "model_note": null,
+      "judge": null
+    },
+    {
+      "id": "eval-unknown-pair-4",
+      "topic": "compare",
+      "split": "holdout",
+      "question": "DET-001 vs DET-999，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "insufficient_evidence",
+      "actual_sources": [],
+      "retrieval_rank": null,
+      "latency_ms": 8.227,
+      "usage": {
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "unreported_usage_calls": 0,
+        "cost_usd": 0,
+        "unpriced_calls": 0,
+        "node_ms": 0.31
+      },
+      "model_note": null,
+      "judge": null
+    },
+    {
+      "id": "eval-lookup-4",
+      "topic": "lookup",
+      "split": "holdout",
+      "question": "读取实验 DET-001",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "lookup",
+      "actual_sources": [
+        "run:DET-001"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 7.144,
+      "usage": {
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "unreported_usage_calls": 0,
+        "cost_usd": 0,
+        "unpriced_calls": 0,
+        "node_ms": 0.33
+      },
+      "model_note": null,
+      "judge": null
+    },
+    {
+      "id": "eval-lookup-incomplete-4",
+      "topic": "lookup",
+      "split": "holdout",
+      "question": "展示 DET-004 的运行记录",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "lookup",
+      "actual_sources": [
+        "run:DET-004"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 6.836,
+      "usage": {
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "unreported_usage_calls": 0,
+        "cost_usd": 0,
+        "unpriced_calls": 0,
+        "node_ms": 0.3
+      },
+      "model_note": null,
+      "judge": null
+    },
+    {
+      "id": "eval-lookup-private-4",
+      "topic": "scope",
+      "split": "holdout",
+      "question": "展示 VIS-001",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "insufficient_evidence",
+      "actual_sources": [],
+      "retrieval_rank": null,
+      "latency_ms": 6.191,
+      "usage": {
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "unreported_usage_calls": 0,
+        "cost_usd": 0,
+        "unpriced_calls": 0,
+        "node_ms": 0.26
+      },
+      "model_note": null,
+      "judge": null
+    },
+    {
+      "id": "eval-guide-seed-4",
+      "topic": "guide",
+      "split": "holdout",
+      "question": "怎么做随机种子的配对实验？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "guide",
+      "actual_sources": [
+        "kb:seeds"
+      ],
+      "retrieval_rank": 1,
+      "latency_ms": 1093.555,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 159,
+        "output_tokens": 12,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 1082.84
+      },
+      "model_note": {
+        "text": "用多个预先指定的随机种子成对复跑，再报告差值的均值和离散程度。",
+        "sources": [
+          "kb:seeds"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-guide-ap-4",
+      "topic": "guide",
+      "split": "holdout",
+      "question": "主 AP 指标与评估口径在手册哪一条？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "guide",
+      "actual_sources": [
+        "kb:ap"
+      ],
+      "retrieval_rank": 1,
+      "latency_ms": 897.09,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 159,
+        "output_tokens": 9,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 881.84
+      },
+      "model_note": {
+        "text": "核对评估器版本、推理设置和取分 epoch，再比较主 AP。",
+        "sources": [
+          "kb:ap"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-guide-latency-4",
+      "topic": "guide",
+      "split": "holdout",
+      "question": "测延迟时 warmup 要固定吗？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "guide",
+      "actual_sources": [
+        "kb:latency"
+      ],
+      "retrieval_rank": 1,
+      "latency_ms": 908.116,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 158,
+        "output_tokens": 9,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 890.32
+      },
+      "model_note": {
+        "text": "统一设备、精度和预热次数，再比较延迟中位数与 P95。",
+        "sources": [
+          "kb:latency"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-guide-oom-4",
+      "topic": "guide",
+      "split": "holdout",
+      "question": "显存不足的定位步骤是什么？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "guide",
+      "actual_sources": [
+        "kb:oom"
+      ],
+      "retrieval_rank": 1,
+      "latency_ms": 891.335,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 151,
+        "output_tokens": 9,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 874.97
+      },
+      "model_note": null,
+      "judge": null
+    },
+    {
+      "id": "eval-pending-rerun-4",
+      "topic": "approval",
+      "split": "holdout",
+      "question": "DET-001 vs DET-003，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify",
+        "propose"
+      ],
+      "actual_status": "incomparable",
+      "actual_sources": [
+        "run:DET-001",
+        "run:DET-003"
+      ],
+      "retrieval_rank": null,
+      "latency_ms": 846.808,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 163,
+        "output_tokens": 8,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 817.71
+      },
+      "model_note": {
+        "text": "按同一数据划分和固定训练条件复跑，再比较主 AP。",
+        "sources": [
+          "kb:protocol"
+        ]
+      },
+      "judge": null
+    },
+    {
+      "id": "eval-denied-rerun-4",
+      "topic": "approval",
+      "split": "holdout",
+      "question": "DET-001 vs VIS-001，报告可以支持怎样的 AP 结论？",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify",
+        "propose"
+      ],
+      "actual_status": "insufficient_evidence",
+      "actual_sources": [],
+      "retrieval_rank": null,
+      "latency_ms": 11.839,
+      "usage": {
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "unreported_usage_calls": 0,
+        "cost_usd": 0,
+        "unpriced_calls": 0,
+        "node_ms": 0.39
+      },
+      "model_note": null,
+      "judge": null
+    },
+    {
+      "id": "eval-unsupported-4",
+      "topic": "unsupported",
+      "split": "holdout",
+      "question": "帮我写一首诗",
+      "checks": {
+        "status": true,
+        "reason": true,
+        "delta": true,
+        "citation": true,
+        "trace": true,
+        "approval": true
+      },
+      "passed": true,
+      "trace": [
+        "triage",
+        "collect",
+        "draft",
+        "verify"
+      ],
+      "actual_status": "unsupported",
+      "actual_sources": [],
+      "retrieval_rank": null,
+      "latency_ms": 1514.698,
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 98,
+        "output_tokens": 16,
+        "unreported_usage_calls": 0,
+        "cost_usd": null,
+        "unpriced_calls": 1,
+        "node_ms": 1501.11
+      },
+      "model_note": null,
+      "judge": null
+    }
+  ]
+}
